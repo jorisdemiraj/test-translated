@@ -1,0 +1,43 @@
+version: "1"
+services:
+  redis_container:
+    image: redis:latest
+    container_name: redis_container
+    ports:
+      - "6379:6379"
+    networks:
+      - my_network
+  rabbitmq_container:
+    image: rabbitmq:3-management-alpine
+    container_name: rabbitmq_container
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - my_network
+  server_container:
+    build:
+      context: ./Server/server
+      dockerfile: Dockerfile
+    container_name: server_container
+    networks:
+      - my_network
+    depends_on:
+      - redis_container
+      - rabbitmq_container
+  client_container:
+    build:
+      context: ./Client/client
+      dockerfile: Dockerfile
+    container_name: client_container
+    ports:
+      - "22100:22100"
+      - "8501:8501"
+    networks:
+      - my_network
+    depends_on:
+      - rabbitmq_container
+networks:
+  my_network:
+    name: my_network
+    driver: bridge
