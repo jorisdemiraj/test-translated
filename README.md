@@ -58,8 +58,24 @@ Notes:
 
 - The Client and Server components are capable of running separately in Docker if you wish to not use docker-compose. All containers deployed outside of docker-compose must fall under the same network and the Environmental Variables for the RabbitMQ and Redis Hosts must be updated to the service/cointainer name.
 
+To deploy in python module form:
 
+- For the Client, navigate to its directory and you can either run the command: 
 
+```bash
+  bash run.sh
+``` 
+which will deploy both the GUI and the Client , or to run just the Client without GUI: 
+
+```bash
+  python3 start_server.py
+``` 
+
+- For the server, navigate to its directory and run the command: 
+
+```bash
+  python3 main.py
+``` 
 ## Demo
 
 Once the deploy finishes there are two ways to test. 
