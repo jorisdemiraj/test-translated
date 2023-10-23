@@ -11,6 +11,8 @@ There are 2 ways to run the project.
 
 - By running your own docker of RabbitMQ and Redis and starting the respective Client and Server python modules.
 
+Documentation : https://docs.google.com/document/d/1CBXJNVZEnwpGSzbmSLsQxEl_czHp0E13sJOe3KfDcHk/edit?usp=sharing
+
 ## Environment Variables
 
 To run this project, depending on the chosen way of running, you will need to modify the following environment variables to both Client and Server .env file.
