@@ -67,8 +67,8 @@ def shorten_url(r,url, email):
         # else generate a new short code
         short_code = generate_short_code()
         
-        # set url and short code in database
-        r.set(url, short_code)
+        
+        
         
         # set email, url and short code in database with short code as key
         r.hset(short_code, mapping={'email': email, 'url': url, 'short_url': short_code})
